@@ -20,6 +20,7 @@ double calculateItemValue(const InventoryItem& item) {
     return item.quantity * item.price;
 }
 
+// Reads sku, name, quantity, and price from each line until the file ends or maxItems is reached
 int readInventoryFile(string filename, InventoryItem items[], int maxItems) {
     ifstream in(filename);
     if (!in.is_open()) {
@@ -85,6 +86,7 @@ int findItemBySku(const InventoryItem items[], int count, string sku) {
     return -1;
 }
 
+// Starts by assuming the first item is highest, then compares each item's value to find the true highest
 int findHighestValueItemIndex(const InventoryItem items[], int count) {
     if (items == nullptr || count <= 0) {
         return -1;
